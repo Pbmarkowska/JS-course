@@ -248,6 +248,7 @@ switch (true) {
 // Falsy values: undefined, null, 0, empty strings ' ', NaN in if/else statement
 // Truthy values: all the values that are considered true when evaluated in an if/else statement
 
+/*
 var height;
 height = 23;
 
@@ -265,4 +266,115 @@ if (height == '23') {
     console.log('The == operator does type coercion!');
 }
 
+/************************ 
+* Coding challenge
+*/
+
+var JohnTeamScore, MikeTeamScore, MaryTeamScore
+JohnTeamScore = 89 + 111 + 133; // in points
+MikeTeamScore = 116 + 94 + 123; 
+MaryTeamScore = 97 + 134 + 102;
+
+console.log(JohnTeamScore);
+console.log(MikeTeamScore);
+console.log(MaryTeamScore);
+
+var AvgJohnScore, AvgMikeScore, AvgMaryScore;
+AvgJohnScore = JohnTeamScore / 3;
+AvgMikeScore = MikeTeamScore/ 3;
+AvgMaryScore = MaryTeamScore / 3;
+
+console.log(AvgJohnScore); // 104
+console.log(AvgMikeScore); // 111
+console.log(AvgMaryScore); // 112
+
+if (AvgJohnScore > AvgMikeScore && AvgJohnScore > AvgMaryScore) {
+    console.log("John\'s Team won with " + AvgJohnScore);
+} else if (AvgMaryScore > AvgJohnScore && AvgMaryScore > AvgMikeScore) {
+    console.log("Mary\'s Team won with " + AvgMaryScore);
+} else if (AvgMikeScore > AvgJohnScore && AvgMikeScore > AvgMaryScore) {
+    console.log("Mike\'s Team won with " + AvgMikeScore);
+} else {
+    console.log("It\'s a tie with " + AvgJohnScore, AvgMaryScore, AvgMikeScore);
+}
+
+ /************************ 
+* Functions
+*/
+
+// How to write a function? function + name (arguments) -- variable inside function+ {function block - return}
+
+function calculateAge(birthYear){
+    return 2018 - birthYear;
+}
+// variable to store the result
+var ageJohn = calculateAge(1990); 
+var ageMike = calculateAge(1948); 
+var ageJane = calculateAge(1969); 
+
+console.log(ageJohn,ageMike,ageJane);
+
+// Function is like a machine that receives some input, it does some stuff with it and returns the output
+
+function yearsUntillRetirement(year,firstName){
+    var age = calculateAge(year) //calling other function in a function
+    var retirement = 65 - age;
+    
+    if (retirement>0){
+        console.log(firstName + ' retires in' + retirement + ' years');
+    } else{
+        console.log(firstName + ' is already retired');
+    }
+   
+}
+
+// calling the function out
+yearsUntillRetirement(1990, 'John');
+yearsUntillRetirement(1948, 'Mike');
+yearsUntillRetirement(1969, 'Jane');
+
+/************************ 
+* Function Statements and Expressions
+*/
+
+// Function declaration
+/*
+function(job,firstName){
+    
+}
+*/
+
+// Function without the name, passing the arguments and store it in the variable == function expression
+var whatDoYouDo = function(job,firstName){
+   switch(job){
+    case 'teacher':
+           return firstName + ' teaches how to code';
+    case 'driver':
+           return firstName + ' drives';
+    case 'designer':
+           return firstName + ' designs';
+    default:
+           return firstName + ' does something else';
+    
+   } 
+}
+
+// call the function and pass the values and immediately log to the console
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('designer', 'Mike'));
+
+// Expressions always produces a result, example: 2+3 = 5, or call the function directly in the console, or typeof 23. Whenever JS expects a value, it's an expression
+// Statements perform actions, they don't produce any immediate results: if/else statements, loops, function declarations
+
+
+
+
+
+
+
+
+
+
+
+  
 
