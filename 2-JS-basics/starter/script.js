@@ -270,6 +270,7 @@ if (height == '23') {
 * Coding challenge
 */
 
+/*
 var JohnTeamScore, MikeTeamScore, MaryTeamScore
 JohnTeamScore = 89 + 111 + 133; // in points
 MikeTeamScore = 116 + 94 + 123; 
@@ -297,6 +298,7 @@ if (AvgJohnScore > AvgMikeScore && AvgJohnScore > AvgMaryScore) {
 } else {
     console.log("It\'s a tie with " + AvgJohnScore, AvgMaryScore, AvgMikeScore);
 }
+*/
 
  /************************ 
 * Functions
@@ -366,15 +368,377 @@ console.log(whatDoYouDo('designer', 'Mike'));
 // Expressions always produces a result, example: 2+3 = 5, or call the function directly in the console, or typeof 23. Whenever JS expects a value, it's an expression
 // Statements perform actions, they don't produce any immediate results: if/else statements, loops, function declarations
 
+/************************ 
+* Arrays
+*/
+
+// Arrays are collections of variables that can even have different data types
+
+// Initialize new array, first element is 0, then 1,2 etc.
+var names = ['John', 'Mark', 'Jane'];
+
+// Different way of initializing an array
+var years = new Array(1990, 1969, 1948);
+
+// Access the elements from the array
+console.log(names[0]);
+
+// Returns the whole array
+console.log(names);
+
+// How many elements we have in an arraay
+console.log(names.length);
+
+// Mutate the data in the array
+names[1] = 'Ben';
+console.log(names);
+
+/*
+// Add an element to an array
+names[5] = 'Mary';
+console.log(names);
+*/
+
+// Add element in the end of the array
+names[names.length] = 'Mary';
+console.log(names);
+
+// Different data types
+
+var john = ['John', 'Smith', 1990, 'teacher', false];
+
+// Adding an element at the end of the array
+john.push('blue');
+console.log(john);
+
+// Adding an element in the beginning of the array
+john.unshift('Mr.');
+console.log(john);
+
+// Removes the element from the end
+john.pop();
+john.pop();
+console.log(john);
+
+// Remove the first element from the array
+john.shift();
+console.log(john);
+
+// Return the position of the argument
+john.indexOf(1990);
+console.log(john.indexOf(1990));
+
+// Search an element in the array and return different outputs based on it
+var isJohnDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
+console.log(isJohnDesigner);
+
+/************************ 
+* Codding challenge preparation 
+*/
+
+
+var greetings = "Hey";
+
+function newFunction(){
+    var hello = "hello";
+}
+
+/* hello(); // this will return an error, becuase hello is function scoped and we can only access it inside the function */
+
+// Simple function
+
+function newFunction(greetings,person){
+    var greetings = "Hey";
+    var person = "You";
+    
+    if (greetings = "Hey"){
+        return (greetings + ' ' + person);
+    }
+}
+    
+console.log(newFunction());
+
+// Structure:
+
+/*
+function nameOfThisFunction(anArgument){ // also zero argument() or many (x, y, z)
+    return 2018 - anArgument; // nameOfThisFunction is returned, anArgument will be provided
+}
+//nameOfThisFunction(1987); // here argument is provided in the brackets it has to be stored somewhere, so:
+var varToStoreResultOfFunction = nameOfThisFunction(1990); //this var stores the result 
+console.log('example 0 ' + varToStoreResultOfFunction);
+*/
+
+// Example 1 - function with return, result stored in var and called out outside the function
+/*
+function calculateAge(yearOfBirth){
+    return 2018 - yearOfBirth;
+}
+
+var myAge = calculateAge(1991); // storing the result and calling the function
+console.log('My age is' + ' ' + myAge);
+
+var ageDorota = calculateAge(1989);
+var ageOlga = calculateAge(1990);
+console.log('Dorota is' + ' ' + ageDorota + ' and Olga is' + ' ' + ageOlga);
+*/
+
+// Example 2 - function with var to store the result and console log to print the result, function called out outside the function
+
+/*
+function calculageAge(yearOfBirth){
+    var age = 2018 - yearOfBirth;
+    console.log('Person\'s age is ' + age);
+}
+
+calculageAge(1990);
+*/
+
+// Example 3 - function with return, no need to store the result, result printed in the console and called out at the same time outside the function
+/*
+function calculateAge(yearOfBirth) {
+    age = 2018 - yearOfBirth;
+    return age;
+}
+
+console.log('My age is ' + calculateAge(1990)); 
+*/
+
+// Example 4 - function with 2 parameters
+
+/*
+function calculateAge(year, name){
+    var age = 2018 - year;
+    console.log(name + ' is ' + age + ' years old' );
+}
+
+calculateAge(1991, 'Pati');
+calculateAge(1989, 'Dorota');
+*/
+
+// Example 5
+
+/*
+function calculateAge(yearOfBirth){
+    return 2018 - yearOfBirth;
+}
+
+console.log(calculateAge(1980));
+
+function yearsToRetirement(yearOfBirth, name){
+    var age = calculateAge(yearOfBirth)
+    var years = 65 - age
+    
+    if (yearOfBirth >= 0){
+        console.log('Years to retirement for ' + name + ' is ' + years)
+    } else {
+        console.log(name + ' is already retired')
+    }
+}
+
+yearsToRetirement(1990,'John');
+*/
+
+// Coding challenge 2 - My solution
+
+// Function to calculate tip
+/*
+function calculateTip(bill){
+    var tip;
+    
+    if (bill < 50){
+        tip = bill * 0.2;
+        console.log('Tip is ' + tip)
+    } else if (bill >= 50 && bill <= 200){
+        tip = bill * 0.15;
+        console.log('Tip is ' + tip)
+    } else {
+        tip = bill * 0.10;
+        console.log('Tip is ' + tip )
+    }
+    return tip
+}
+
+// Store the result of a function and call out the function
+var tip1 = calculateTip(124);
+var tip2 = calculateTip(48);
+var tip3 = calculateTip(268);
+
+// Array with tips
+var tips = [tip1, tip2, tip3];
+console.log(tips);
+
+// Array with bills
+var bills = [124,48,268];
+console.log(bills);
+
+// Array with final paid amount
+var paidAmout1 = 124 + tip1;
+var paidAmount2 = 48 + tip2; 
+var paidAmount3 = 268 + tip3;
+
+var paidAmount = [paidAmout1, paidAmount2, paidAmount3];
+console.log(paidAmount);
+*/
+
+// Coding challenge 2 - Author's Solution
+/*
+function tipCalculator(bill){
+    var percentage;
+    if (bill < 50){
+        percentage = 0.2;
+    } else if (bill >= 50 && bill < 200){
+        percentage = 0.15;
+    } else {
+        percentage = 0.1;
+    }
+    return percentage * bill;
+}
+
+console.log(tipCalculator(10)); // check if the calculator is working
+
+// Create arrays with tips using the function we wrote
+var bills = [124, 48, 268];
+var tips = [tipCalculator(bills[0]),
+            tipCalculator(bills[1]),
+            tipCalculator(bills[2])];
+console.log(tips);
+
+var finalAmounts = [bills[0] + tips[0],
+                    bills[1] + tips[1], 
+                    bills[2] + tips[2]];
+                    
+console.log(tips, finalAmounts);
+*/
+
+ /************************ 
+* Objects and properties
+*/
+
+// Arrays - order matter, Objects - order doesn't matter
+// In Objects we define key values pairs
+
+// Object literal
+var john = {
+    firstName: 'John', // we separate key values with coma
+    lastName: 'Smith',
+    birthYear: 1998,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'], // we can have array inside of the object
+    job: 'teacher',
+    isMarried: false
+};
+
+// Retrieve data from object
+
+console.log(john);
+console.log(john.firstName); // log selected value from object with dot notation
+console.log(john['lastName']); // log selected value with brackets
+
+var x = 'birthYear';
+console.log(john[x])
+
+// Mutate data from object
+
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+// Initiate new objet syntax
+
+/*
+var jane = new Object();
+jane.name = 'Jane';
+jane.birthYear = 1991;
+jane['lastName'] = 'Smith';
+console.log(jane);
+*/
+
+ /************************ 
+* Objects and methods
+*/
+
+// Adding a function to an object
+
+/*
+var john = {
+    firstName: 'John', // we separate key values with coma
+    lastName: 'Smith',
+    birthYear: 1992,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'], // we can have array inside of the object
+    job: 'teacher',
+    isMarried: false,
+    calcAge: function(birthYear){
+        return 2018 - this.birthYear; // this current object - John, this keyword point to the current object
+    }
+};
+*/
+
+// Logging the result and calling out the function from an object
+/*
+console.log(john.calcAge());
+*/
+
+// Store the result right in the john object
+/*
+var age = john.calcAge();
+john.age = age
+*/
+ 
+// Store the result in the john object all in one line
+
+/*
+var john = {
+    firstName: 'John', // we separate key values with coma
+    lastName: 'Smith',
+    birthYear: 1992,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'], // we can have array inside of the object
+    job: 'teacher',
+    isMarried: false,
+    calcAge: function(birthYear){
+        this.age =  2018 - this.birthYear; // this current object - John
+    }
+};
+
+john.calcAge();
+console.log(john);
+*/
+
+ /************************ 
+* Codding challenge 4
+*/
+
+
+var john = {
+    fullName: 'John Smith',
+    bodyMass: 76,
+    height: 156,
+    calcBMI: function(bodyMass, height){
+        return this.bodyMass / (this.height * this.height)
+    }
+}
+
+var johnBMI = john.calcBMI();
+console.log(john.calcBMI());
+
+var mark = {
+    fullName: 'Mark Doe',
+    bodyMass: 87,
+    height: 185,
+    calcBMI: function(bodyMass, height){
+        return this.bodyMass / (this.height * this.height)
+    }
+}
+
+var markBMI = mark.calcBMI();
+console.log(mark.calcBMI());
+
+if (johnBMI > markBMI){
+    console.log(john.fullName + ' has higher BMI than ' + mark.fullName);
+} else {
+    console.log(mark.fullName + ' has higher BMI thatn ' + john.fullName);
+}
 
 
 
 
-
-
-
-
-
-
-  
 
