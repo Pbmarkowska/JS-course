@@ -773,7 +773,7 @@ mark.calcBMI();
 
 console.log(john, mark);
 
-if (mark.bmi > john.bmi){
+if (mark.bmi > john.bmi){ 
     console.log(mark.fullName + ' has higher BMI of ' + mark.bmi)
 } else if (john.bmi > mark.bmi){
     console.log(john.fullName + ' has higher BMI of ' + john.bmi)
@@ -787,7 +787,6 @@ if (mark.bmi > john.bmi){
 */
 
 // Loops - for very repetitive tasks
-
 // 'for' loop elements: 
 // 1. initial value of a counter (updated every loop)
 // 2. condition evaluated before each loop iteration
@@ -819,8 +818,9 @@ for (var i = 1; i <= 20; i += 2){
 */
 
 // i + = 2 is the same as i = i + 2
-
+/*
 var john = ['John', 'Smith', 1990, 'teacher', false, 'blue'];
+*/
 /*
 console.log(john[0]);
 console.log(john[1]);
@@ -849,7 +849,7 @@ while(i < john.length){
 // !== different, strict different operator
 // === equal
 
-
+/*
 var john = ['John', 'Smith', 1990, 'teacher', false, 'blue'];
 // check if the element is string
 
@@ -868,3 +868,84 @@ for (var i = 0; i < john.length; i++){
 for (var i = john.length - 1; i >= 0; i--){
     console.log(john[i]);
 }
+/*
+ 
+/************************ 
+* Codding challenge 5 - my solution
+*/
+
+// function tipCalculator(bill){
+//     var percentage;
+//     if (bill < 50){
+//         percentage = 0.2;
+//     } else if (bill >= 50 && bill < 200){
+//         percentage = 0.15;
+//     } else {
+//         percentage = 0.1;
+//     }
+//     return percentage * bill;
+// }
+
+// console.log(tipCalculator(10)); // check if the calculator is working
+
+// Create arrays with tips using the function we wrote
+// var bills = [124, 48, 268, 180, 42];
+// var tips = [tipCalculator(bills[0]),
+//             tipCalculator(bills[1]),
+//             tipCalculator(bills[2]),
+//             tipCalculator(bills[3]),
+//             tipCalculator(bills[4])];
+// console.log(tips);
+
+// var finalAmounts = [bills[0] + tips[0],
+//                     bills[1] + tips[1], 
+//                     bills[2] + tips[2],
+//                     bills[3] + tips[3],
+//                     bills[4] + tips[4]];
+                    
+// console.log(tips, finalAmounts);
+
+
+// bills.forEach(bill => {
+//     tipCalculator(bill);
+// });
+
+
+// const i = 0;
+// while (i < bills.length){
+//     tipCalculator(bills[i]);
+//     i++;
+// }
+
+var tips = [];
+var finalAmounts = [];
+var bills = [124, 48, 268, 180, 42];
+
+function tipCalculator(bill){
+    var percentage;
+    if (bill < 50){
+        percentage = 0.2;
+    } else if (bill >= 50 && bill < 200){
+        percentage = 0.15;
+    } else {
+        percentage = 0.1;
+    }
+    return percentage * bill;
+}
+
+
+function finalAmount(bill, tip){
+    return bill + tip;
+}
+
+for (var i = 0; i < bills.length; i++){
+    tips.push(tipCalculator(bills[i]));
+    finalAmounts.push(finalAmount(bills[i], tips[i]));
+}
+
+console.log(tips);
+console.log(finalAmounts);
+
+/************************ 
+* Codding challenge 5 - author's solution
+*/
