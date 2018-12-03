@@ -539,13 +539,14 @@ function yearsToRetirement(yearOfBirth, name){
 yearsToRetirement(1990,'John');
 */
 
-// Coding challenge 2 - My solution
+// Coding challenge 3 - My solution
 
 // Function to calculate tip
+
 /*
 function calculateTip(bill){
     var tip;
-    
+
     if (bill < 50){
         tip = bill * 0.2;
         console.log('Tip is ' + tip)
@@ -556,7 +557,7 @@ function calculateTip(bill){
         tip = bill * 0.10;
         console.log('Tip is ' + tip )
     }
-    return tip
+    return tip;
 }
 
 // Store the result of a function and call out the function
@@ -581,7 +582,7 @@ var paidAmount = [paidAmout1, paidAmount2, paidAmount3];
 console.log(paidAmount);
 */
 
-// Coding challenge 2 - Author's Solution
+// Coding challenge 3 - Author's Solution
 /*
 function tipCalculator(bill){
     var percentage;
@@ -619,6 +620,7 @@ console.log(tips, finalAmounts);
 // In Objects we define key values pairs
 
 // Object literal
+/*
 var john = {
     firstName: 'John', // we separate key values with coma
     lastName: 'Smith',
@@ -704,41 +706,165 @@ console.log(john);
 */
 
  /************************ 
-* Codding challenge 4
+* Codding challenge 4 - My solution
 */
 
-
+/*
 var john = {
     fullName: 'John Smith',
     bodyMass: 76,
-    height: 156,
+    height: 1.56,
     calcBMI: function(bodyMass, height){
         return this.bodyMass / (this.height * this.height)
     }
 }
 
-var johnBMI = john.calcBMI();
+john.BMI = john.calcBMI();
 console.log(john.calcBMI());
 
 var mark = {
     fullName: 'Mark Doe',
     bodyMass: 87,
-    height: 185,
+    height: 1.85,
     calcBMI: function(bodyMass, height){
         return this.bodyMass / (this.height * this.height)
     }
 }
 
-var markBMI = mark.calcBMI();
+mark.BMI = mark.calcBMI();
 console.log(mark.calcBMI());
 
-if (johnBMI > markBMI){
+if (john.BMI > mark.BMI){
     console.log(john.fullName + ' has higher BMI than ' + mark.fullName);
 } else {
     console.log(mark.fullName + ' has higher BMI thatn ' + john.fullName);
 }
 
+console.log(john, mark);
+*/
+
+/************************ 
+* Codding challenge 4 - Author's solution
+*/
+
+/*
+var john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    }
+}
+
+var mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function(){
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    }
+}
+
+john.calcBMI();
+mark.calcBMI();
+
+console.log(john, mark);
+
+if (mark.bmi > john.bmi){
+    console.log(mark.fullName + ' has higher BMI of ' + mark.bmi)
+} else if (john.bmi > mark.bmi){
+    console.log(john.fullName + ' has higher BMI of ' + john.bmi)
+} else{
+    console.log('They have the same BMI');
+}
+*/
+
+/************************ 
+* Loops and Iteration
+*/
+
+// Loops - for very repetitive tasks
+
+// 'for' loop elements: 
+// 1. initial value of a counter (updated every loop)
+// 2. condition evaluated before each loop iteration
+// 3. counter update after each iteration
+// i++ it's the same as i = i + 1, i is incremented
+
+/*
+for (var i = 0; i < 10; i++){
+    console.log(i);
+}
+*/
+
+// i = 0, 0 < 10 true, log i to the console, i++
+// i = 1, 1 < 10 true, log i to the console, i++
+// ...
+// i = 9, 9 < 10 true, log i to the console, i++
+// i = 10, 10 < 10 FALSE, exit the loop!
+
+/*
+for (var i = 1; i <= 20; i++){
+    console.log(i);
+}
+*/ 
+
+/*
+for (var i = 1; i <= 20; i += 2){
+    console.log(i);
+}
+*/
+
+// i + = 2 is the same as i = i + 2
+
+var john = ['John', 'Smith', 1990, 'teacher', false, 'blue'];
+/*
+console.log(john[0]);
+console.log(john[1]);
+console.log(john[2]);
+console.log(john[3]);
+console.log(john[4]);
+*/
+
+/*
+for (var i = 0; i < john.length; i++){
+    console.log(john[i]);
+};
+*/
+ 
+// 'while' loop - in this loop we only need to pass the condition
+
+/*
+var i = 0;
+while(i < john.length){
+    console.log(john[i]);
+    i++;
+}
+*/
+
+// Continue and Break statements
+// !== different, strict different operator
+// === equal
 
 
+var john = ['John', 'Smith', 1990, 'teacher', false, 'blue'];
+// check if the element is string
 
+for (var i = 0; i < john.length; i++){
+    if (typeof john[i] !== 'string') continue;
+    console.log(john[i]);
+}
 
+// Loop stops when finds an element that doesn't meet the condition
+for (var i = 0; i < john.length; i++){
+    if (typeof john[i] !== 'string') break;
+    console.log(john[i]);
+}
+
+// Looping backwards
+for (var i = john.length - 1; i >= 0; i--){
+    console.log(john[i]);
+}
